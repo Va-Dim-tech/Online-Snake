@@ -1,0 +1,11 @@
+{% extends "main/index.html" %}
+
+{% block content %}
+<div class="block_auth">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Войти">
+    </form>
+</div>
+{% endblock content %}

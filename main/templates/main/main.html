@@ -1,0 +1,12 @@
+{% extends "main/index.html" %}
+
+
+{% block content %}
+    <div class="block_main">
+        <div id="wrapper_play">
+            {% include 'main/play_snake.html' %}
+        </div>
+        <h4>Основная страница</h4>
+        <a href="{% url 'register'%}">Ссылка на регистрацию</a>
+    </div>
+{% endblock content %}

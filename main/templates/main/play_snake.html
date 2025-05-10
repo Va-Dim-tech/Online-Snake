@@ -1,0 +1,19 @@
+<div class="play_snake">
+    <span class="score-text">Счёт: <span id="score">0</span></span>
+    <input type="button" value="Eat apple" id="eatapple" onclick="EatApple()">
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="button" value="Game over" name="endgame"
+        onclick="sendData(`{% url 'sendScore' %}`);return false">
+    </form>
+</div>
+{% if request.user.is_authenticated %}
+    <span>{{request.user.username}} {{request.user.score}}</span>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Выйти" name='logout'>
+    </form>
+{% else %}
+    <span>Пользователь не зарегистрирован</span>
+    <a href="{% url 'login'%}">Войти</a>
+{% endif %}
